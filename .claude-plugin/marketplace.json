@@ -1,5 +1,5 @@
 {
-  "name": "codex-skill-tailscale",
+  "name": "tailscale-skill",
   "metadata": {
     "version": "1.0.0",
     "description": "Tailscale API skill for Claude Code / Codex — deterministic curl+jq scripts over the Tailscale v2 REST API."

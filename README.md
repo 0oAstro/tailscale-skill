@@ -1,4 +1,4 @@
-# codex-skill-tailscale
+# tailscale-skill
 
 A Claude Code / Codex skill for managing Tailscale tailnets through the v2 REST API.
 
@@ -10,7 +10,7 @@ Provides deterministic `curl`+`jq` scripts with operationId-based invocation, dr
 - **`ts_catalog.sh`** — search/filter operations by tag, method, or keyword
 - **`ts_call.sh`** — invoke any operation by `operationId` with path/query/body params
 - **Dry-run by default** for mutations — always preview before `--yes`
-- **Regenerable catalog** via `ts_build_catalog.sh` from any updated OpenAPI spec
+- **Bundled OpenAPI spec** + regenerable catalog via `ts_build_catalog.sh`
 
 ## Prerequisites
 
@@ -21,12 +21,12 @@ Provides deterministic `curl`+`jq` scripts with operationId-based invocation, dr
 ## Installation
 
 ```bash
-# Install via Claude Code marketplace (once published)
-/plugin marketplace add <owner>/codex-skill-tailscale
+# Install via Claude Code marketplace
+/plugin marketplace add shaurya/tailscale-skill
 /plugin install tailscale
 
-# Or clone directly and point your skill loader at the repo
-git clone https://github.com/<owner>/codex-skill-tailscale
+# Or clone directly
+git clone https://github.com/shaurya/tailscale-skill
 ```
 
 ## Usage
@@ -60,9 +60,13 @@ export TS_API_KEY='tskey-api-...'
 
 ## Regenerating the catalog
 
-If Tailscale releases a new API spec:
+The bundled spec lives at `skills/tailscale/references/tailscale-api.json`. To regenerate after a Tailscale API update:
 
 ```bash
+# Uses bundled spec by default
+./skills/tailscale/scripts/ts_build_catalog.sh
+
+# Or point at a new spec
 ./skills/tailscale/scripts/ts_build_catalog.sh /path/to/tailscale-api.json
 ```
 
@@ -93,6 +97,7 @@ skills/
       ts_build_catalog.sh  # Regenerate catalog from OpenAPI spec
       ts_smoke.sh      # Offline smoke checks
     references/
+      tailscale-api.json      # Bundled OpenAPI spec
       operation_catalog.json  # 85 operations extracted from OpenAPI
       operations.tsv          # Human-readable index
 ```

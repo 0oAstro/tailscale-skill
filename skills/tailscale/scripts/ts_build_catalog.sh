@@ -15,17 +15,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REF_DIR="$SCRIPT_DIR/../references"
-SPEC_PATH="${1:-}"
-
-if [[ -z "$SPEC_PATH" ]]; then
-  echo "Usage: ts_build_catalog.sh <path-to-tailscale-openapi.json>" >&2
-  echo "" >&2
-  echo "Download the spec from the Tailscale API docs or GitHub." >&2
-  exit 1
-fi
+SPEC_PATH="${1:-$REF_DIR/tailscale-api.json}"
 
 if [[ ! -f "$SPEC_PATH" ]]; then
   echo "error: OpenAPI spec not found: $SPEC_PATH" >&2
+  echo "Usage: ts_build_catalog.sh [/path/to/tailscale-api.json]" >&2
   exit 1
 fi
 
