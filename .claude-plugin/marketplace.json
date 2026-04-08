@@ -1,8 +1,9 @@
 {
   "name": "tailscale-skill",
-  "metadata": {
-    "version": "1.0.0",
-    "description": "Tailscale API skill for Claude Code / Codex — deterministic curl+jq scripts over the Tailscale v2 REST API."
+  "description": "Tailscale API skill for Claude Code / Codex — deterministic curl+jq scripts over the Tailscale v2 REST API.",
+  "owner": {
+    "name": "0oAstro",
+    "email": "79555780+0oAstro@users.noreply.github.com"
   },
   "plugins": [
     {
