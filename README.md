@@ -22,11 +22,11 @@ Provides deterministic `curl`+`jq` scripts with operationId-based invocation, dr
 
 ```bash
 # Install via Claude Code marketplace
-/plugin marketplace add shaurya/tailscale-skill
+/plugin marketplace add 0oAstro/tailscale-skill
 /plugin install tailscale
 
 # Or clone directly
-git clone https://github.com/shaurya/tailscale-skill
+git clone https://github.com/0oAstro/tailscale-skill
 ```
 
 ## Usage
