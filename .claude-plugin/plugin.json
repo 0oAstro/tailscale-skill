@@ -1,0 +1,10 @@
+{
+  "name": "tailscale",
+  "version": "1.0.0",
+  "description": "Manage Tailscale tailnet resources via curl+jq scripts with operationId-based invocation, dry-run previews, and explicit write confirmation.",
+  "author": {
+    "name": "shaurya"
+  },
+  "license": "MIT",
+  "keywords": ["tailscale", "api", "networking", "vpn", "tailnet", "curl", "jq"]
+}

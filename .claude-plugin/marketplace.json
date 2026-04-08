@@ -1,0 +1,15 @@
+{
+  "name": "codex-skill-tailscale",
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Tailscale API skill for Claude Code / Codex — deterministic curl+jq scripts over the Tailscale v2 REST API."
+  },
+  "plugins": [
+    {
+      "name": "tailscale",
+      "version": "1.0.0",
+      "description": "Manage Tailnet resources (devices, users, keys, DNS, ACL policy, webhooks) via operationId-based curl+jq scripts with dry-run previews and explicit write confirmation.",
+      "source": "./skills/tailscale"
+    }
+  ]
+}

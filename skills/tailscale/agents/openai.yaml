@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tailscale API"
+  short_description: "Manage Tailnet resources via curl+jq scripts."
+  default_prompt: "Use the Tailscale skill scripts to perform safe, explicit Tailnet API actions with clear previews and jq-parsed output."

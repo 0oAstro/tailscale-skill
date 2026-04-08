@@ -1,0 +1,2617 @@
+[
+  {
+    "operationId": "acceptDeviceInvite",
+    "method": "POST",
+    "path": "/device-invites/-/accept",
+    "summary": "Accept a device invite",
+    "tags": [
+      "DeviceInvites"
+    ],
+    "pathParams": [],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "approveUser",
+    "method": "POST",
+    "path": "/users/{userId}/approve",
+    "summary": "Approve a user",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "userId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "authorizeDevice",
+    "method": "POST",
+    "path": "/device/{deviceId}/authorized",
+    "summary": "Authorize device",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "batchUpdateCustomDevicePostureAttributes",
+    "method": "PATCH",
+    "path": "/tailnet/{tailnet}/device-attributes",
+    "summary": "Batch update custom device posture attributes",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": true,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "createDeviceInvites",
+    "method": "POST",
+    "path": "/device/{deviceId}/device-invites",
+    "summary": "Create device invites",
+    "tags": [
+      "DeviceInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "createKey",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/keys",
+    "summary": "Create an auth key or trust credential",
+    "tags": [
+      "Keys"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "createPostureIntegration",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/posture/integrations",
+    "summary": "Create a posture integration",
+    "tags": [
+      "DevicePosture"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "createUserInvites",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/user-invites",
+    "summary": "Create user invites",
+    "tags": [
+      "UserInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "createWebhook",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/webhooks",
+    "summary": "Create a webhook",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteCustomDevicePostureAttributes",
+    "method": "DELETE",
+    "path": "/device/{deviceId}/attributes/{attributeKey}",
+    "summary": "Delete custom device posture attributes",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "attributeKey",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "maxLength": 128
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteDevice",
+    "method": "DELETE",
+    "path": "/device/{deviceId}",
+    "summary": "Delete a device",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteDeviceInvite",
+    "method": "DELETE",
+    "path": "/device-invites/{deviceInviteId}",
+    "summary": "Delete a device invite",
+    "tags": [
+      "DeviceInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceInviteId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteKey",
+    "method": "DELETE",
+    "path": "/tailnet/{tailnet}/keys/{keyId}",
+    "summary": "Delete key",
+    "tags": [
+      "Keys"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "keyId",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "k123456CNTRL"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deletePostureIntegration",
+    "method": "DELETE",
+    "path": "/posture/integrations/{id}",
+    "summary": "Delete a posture integration",
+    "tags": [
+      "DevicePosture"
+    ],
+    "pathParams": [
+      {
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "p56wQiqrn7mfDEVEL"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteService",
+    "method": "DELETE",
+    "path": "/tailnet/{tailnet}/services/{serviceName}",
+    "summary": "Delete a Service",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "serviceName",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteUser",
+    "method": "POST",
+    "path": "/users/{userId}/delete",
+    "summary": "Delete a user",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "userId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteUserInvite",
+    "method": "DELETE",
+    "path": "/user-invites/{userInviteId}",
+    "summary": "Delete a user invite",
+    "tags": [
+      "UserInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "userInviteId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "deleteWebhook",
+    "method": "DELETE",
+    "path": "/webhooks/{endpointId}",
+    "summary": "Delete webhook",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "endpointId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "disableLogStreaming",
+    "method": "DELETE",
+    "path": "/tailnet/{tailnet}/logging/{logType}/stream",
+    "summary": "Disable log streaming",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "logType",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/LogType"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "expireDeviceKey",
+    "method": "POST",
+    "path": "/device/{deviceId}/expire",
+    "summary": "Expire a device's key",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getAwsExternalId",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/aws-external-id",
+    "summary": "Create or get AWS external id",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getContacts",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/contacts",
+    "summary": "Get contacts",
+    "tags": [
+      "Contacts"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getDevice",
+    "method": "GET",
+    "path": "/device/{deviceId}",
+    "summary": "Get a device",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "fields",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "all",
+            "default"
+          ],
+          "example": "all"
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getDeviceInvite",
+    "method": "GET",
+    "path": "/device-invites/{deviceInviteId}",
+    "summary": "Get a device invite",
+    "tags": [
+      "DeviceInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceInviteId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getDevicePostureAttributes",
+    "method": "GET",
+    "path": "/device/{deviceId}/attributes",
+    "summary": "Get device posture attributes",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getDnsConfiguration",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/dns/configuration",
+    "summary": "Get DNS configuration",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getDnsPreferences",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/dns/preferences",
+    "summary": "Get DNS preferences",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getKey",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/keys/{keyId}",
+    "summary": "Get key",
+    "tags": [
+      "Keys"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "keyId",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "k123456CNTRL"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getLogStreamingConfiguration",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/logging/{logType}/stream",
+    "summary": "Get log streaming configuration",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "logType",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/LogType"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getLogStreamingStatus",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/logging/{logType}/stream/status",
+    "summary": "Get log streaming status",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "logType",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/LogType"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getPolicyFile",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/acl",
+    "summary": "Get policy file",
+    "tags": [
+      "PolicyFile"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "details",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getPostureIntegration",
+    "method": "GET",
+    "path": "/posture/integrations/{id}",
+    "summary": "Get a posture integration",
+    "tags": [
+      "DevicePosture"
+    ],
+    "pathParams": [
+      {
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "p56wQiqrn7mfDEVEL"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getPostureIntegrations",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/posture/integrations",
+    "summary": "List all posture integrations",
+    "tags": [
+      "DevicePosture"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getService",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/services/{serviceName}",
+    "summary": "Get a Service",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "serviceName",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getServiceDeviceApproval",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/services/{serviceName}/device/{deviceId}/approved",
+    "summary": "Get approval status of Service on a device",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "serviceName",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getSplitDns",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/dns/split-dns",
+    "summary": "Get split DNS",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getTailnetSettings",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/settings",
+    "summary": "Get tailnet settings",
+    "tags": [
+      "TailnetSettings"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getUser",
+    "method": "GET",
+    "path": "/users/{userId}",
+    "summary": "Get a user",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "userId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getUserInvite",
+    "method": "GET",
+    "path": "/user-invites/{userInviteId}",
+    "summary": "Get a user invite",
+    "tags": [
+      "UserInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "userInviteId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "getWebhook",
+    "method": "GET",
+    "path": "/webhooks/{endpointId}",
+    "summary": "Get webhook",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "endpointId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listConfigurationAuditLogs",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/logging/configuration",
+    "summary": "List configuration audit logs",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "start",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "2023-12-19T16:39:57-08:00"
+        }
+      },
+      {
+        "name": "end",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "2023-12-22T02:15:23-08:00"
+        }
+      },
+      {
+        "name": "actor",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "uc4p8fRHvJ11DEVEL",
+            "~bob"
+          ]
+        }
+      },
+      {
+        "name": "target",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "mytarget1",
+            "sometarget2"
+          ]
+        }
+      },
+      {
+        "name": "event",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ADMIN_CONSOLE.LOGIN",
+              "ADMIN_CONSOLE.LOGOUT",
+              "API_KEY.CREATE",
+              "API_KEY.EXPIRED",
+              "API_KEY.REVOKE",
+              "BILLING.CANCEL.SUBSCRIPTION",
+              "BILLING.CREATE.SUBSCRIPTION",
+              "BILLING.UPDATE.ADDRESS",
+              "BILLING.UPDATE.BILLING_OWNER",
+              "BILLING.UPDATE.EMAIL",
+              "BILLING.UPDATE.PAYMENT_INFO",
+              "BILLING.UPDATE.STRIPE_CUSTOMER_ID",
+              "BILLING.UPDATE.SUBSCRIPTION",
+              "FAILED_REQUEST.UPDATE",
+              "GROUP.PUSH_GROUP.ATTRIBUTES",
+              "INVITE.ACCEPT.FEATURE",
+              "INVITE.ACCEPT.NODE_SHARE",
+              "INVITE.ACCEPT.TAILNET_INVITE",
+              "INVITE.CREATE.FEATURE",
+              "INVITE.CREATE.NODE_SHARE",
+              "INVITE.CREATE.TAILNET_INVITE",
+              "INVITE.DELETE.NODE_SHARE",
+              "INVITE.DELETE.TAILNET_INVITE",
+              "INVITE.RESEND.NODE_SHARE",
+              "INVITE.RESEND.TAILNET_INVITE",
+              "NODE.APPROVE",
+              "NODE.CREATE",
+              "NODE.CREATE.ATTRIBUTES",
+              "NODE.DELETE",
+              "NODE.DELETE.ATTRIBUTES",
+              "NODE.DISABLE.KEY_EXPIRY",
+              "NODE.DISCONNECT_NODE.CLIENT_LOG",
+              "NODE.ENABLE.KEY_EXPIRY",
+              "NODE.EXPIRED.KEY_EXPIRY_TIME",
+              "NODE.LOGIN",
+              "NODE.LOGOUT",
+              "NODE.REVOKE",
+              "NODE.UPDATE.ACL_TAGS",
+              "NODE.UPDATE.ALLOWED_IPS",
+              "NODE.UPDATE.ATTRIBUTES",
+              "NODE.UPDATE.AUTO_APPROVED_ROUTES",
+              "NODE.UPDATE.EXIT_NODE",
+              "NODE.UPDATE.KEY_EXPIRY_TIME",
+              "NODE.UPDATE.MACHINE_NAME",
+              "NODE.UPDATE.POSTURE_IDENTITY",
+              "NODE.UPDATE.TKA",
+              "SHARE.CREATE",
+              "SHARE.DELETE",
+              "SHARE.UPDATE",
+              "TAILNET.ACCEPT.FEATURE",
+              "TAILNET.CREATE",
+              "TAILNET.CREATE.LOGSTREAM_ENDPOINT",
+              "TAILNET.CREATE.POSTURE_INTEGRATION",
+              "TAILNET.CREATE.TKA",
+              "TAILNET.DELETE.LOGSTREAM_ENDPOINT",
+              "TAILNET.DELETE.POSTURE_INTEGRATION",
+              "TAILNET.DELETE.TKA",
+              "TAILNET.DISABLE.COLLECT_POSTURE_IDENTITY",
+              "TAILNET.DISABLE.COLLECT_SERVICES",
+              "TAILNET.DISABLE.FILE_SHARING",
+              "TAILNET.DISABLE.GEOSTEERING",
+              "TAILNET.DISABLE.HTTPS",
+              "TAILNET.DISABLE.LOG_EXIT_FLOWS",
+              "TAILNET.DISABLE.MACHINE_APPROVAL_NEEDED",
+              "TAILNET.DISABLE.MAGIC_DNS",
+              "TAILNET.DISABLE.MULLVAD_VPN",
+              "TAILNET.DISABLE.NETWORK_FLOW_LOGGING",
+              "TAILNET.DISABLE.SCIM",
+              "TAILNET.DISABLE.TKA",
+              "TAILNET.DISABLE.USER_APPROVAL_REQUIRED",
+              "TAILNET.ENABLE.COLLECT_POSTURE_IDENTITY",
+              "TAILNET.ENABLE.COLLECT_SERVICES",
+              "TAILNET.ENABLE.FILE_SHARING",
+              "TAILNET.ENABLE.GEOSTEERING",
+              "TAILNET.ENABLE.HTTPS",
+              "TAILNET.ENABLE.LOG_EXIT_FLOWS",
+              "TAILNET.ENABLE.MACHINE_APPROVAL_NEEDED",
+              "TAILNET.ENABLE.MAGIC_DNS",
+              "TAILNET.ENABLE.MULLVAD_VPN",
+              "TAILNET.ENABLE.NETWORK_FLOW_LOGGING",
+              "TAILNET.ENABLE.SCIM",
+              "TAILNET.ENABLE.TKA",
+              "TAILNET.ENABLE.USER_APPROVAL_REQUIRED",
+              "TAILNET.JOIN",
+              "TAILNET.JOIN_WAITLIST.FEATURE",
+              "TAILNET.LEAVE",
+              "TAILNET.UPDATE.ACCOUNT_EMAIL",
+              "TAILNET.UPDATE.ACL",
+              "TAILNET.UPDATE.DNS_CONFIG",
+              "TAILNET.UPDATE.LOGSTREAM_ENDPOINT",
+              "TAILNET.UPDATE.MAX_KEY_DURATION",
+              "TAILNET.UPDATE.POSTURE_INTEGRATION",
+              "TAILNET.UPDATE.SECURITY_EMAIL",
+              "TAILNET.UPDATE.SUPPORT_EMAIL",
+              "TAILNET.UPDATE.TCD",
+              "TAILNET.UPDATE.TKA",
+              "TAILNET.VERIFY.ACCOUNT_EMAIL",
+              "TAILNET.VERIFY.SECURITY_EMAIL",
+              "TAILNET.VERIFY.SUPPORT_EMAIL",
+              "USER.APPROVE",
+              "USER.CREATE",
+              "USER.DELETE",
+              "USER.INVITE",
+              "USER.PUSH_USER.ATTRIBUTES",
+              "USER.RESEND.TAILNET_INVITE",
+              "USER.RESTORE",
+              "USER.RESTORE_GLOBAL",
+              "USER.SUSPEND",
+              "USER.SUSPEND_GLOBAL",
+              "USER.UPDATE.USER_ROLE",
+              "WEBHOOK_ENDPOINT.CREATE",
+              "WEBHOOK_ENDPOINT.DELETE",
+              "WEBHOOK_ENDPOINT.UPDATE.SECRET",
+              "WEBHOOK_ENDPOINT.UPDATE.SUBSCRIBED_EVENTS",
+              "WEB_INTERFACE.LOGIN",
+              "WEB_INTERFACE.LOGOUT"
+            ]
+          },
+          "example": [
+            "USER.CREATE",
+            "NODE.CREATE"
+          ]
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listDeviceInvites",
+    "method": "GET",
+    "path": "/device/{deviceId}/device-invites",
+    "summary": "List device invites",
+    "tags": [
+      "DeviceInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listDeviceRoutes",
+    "method": "GET",
+    "path": "/device/{deviceId}/routes",
+    "summary": "List device routes",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listDnsNameservers",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/dns/nameservers",
+    "summary": "List DNS nameservers",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listDnsSearchPaths",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/dns/searchpaths",
+    "summary": "List DNS search paths",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listNetworkFlowLogs",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/logging/network",
+    "summary": "List network flow logs",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "start",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "2023-12-19T16:39:57-08:00"
+        }
+      },
+      {
+        "name": "end",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "2023-12-22T02:15:23-08:00"
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listServiceHosts",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/services/{serviceName}/devices",
+    "summary": "List devices hosting a Service",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "serviceName",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listServices",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/services",
+    "summary": "List all Services",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listTailnetDevices",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/devices",
+    "summary": "List tailnet devices",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "fields",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "all",
+            "default"
+          ],
+          "example": "all"
+        }
+      },
+      {
+        "name": "<field>=<value> filters",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listTailnetKeys",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/keys",
+    "summary": "List tailnet keys",
+    "tags": [
+      "Keys"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "all",
+        "required": true,
+        "schema": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listUserInvites",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/user-invites",
+    "summary": "List user invites",
+    "tags": [
+      "UserInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listUsers",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/users",
+    "summary": "List users",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "type",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "member",
+            "shared",
+            "all"
+          ],
+          "default": "member",
+          "example": "member"
+        }
+      },
+      {
+        "name": "role",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "owner",
+            "member",
+            "admin",
+            "it-admin",
+            "network-admin",
+            "billing-admin",
+            "auditor",
+            "all"
+          ],
+          "default": "all",
+          "example": "all"
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "listWebhooks",
+    "method": "GET",
+    "path": "/tailnet/{tailnet}/webhooks",
+    "summary": "List webhooks",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "previewRuleMatches",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/acl/preview",
+    "summary": "Preview rule matches",
+    "tags": [
+      "PolicyFile"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [
+      {
+        "name": "type",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "user",
+            "ipport"
+          ],
+          "x-enumDescriptions": {
+            "user": "Specify `user` if the `previewFor` value is a user's email.\nNote that `user` remains in the API for compatibility purposes,\nbut has been replaced by `src` in policy files.\n",
+            "ipport": "Specify `ipport` if the `previewFor` value is an IP address and port.\nNote that `ipport` remains in the API for compatibility purposes,\nbut has been replaced by `dst` in policy files.\n"
+          },
+          "example": "user"
+        }
+      },
+      {
+        "name": "previewFor",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "10.0.0.1:80"
+        }
+      }
+    ],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/hujson",
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "resendContactVerificationEmail",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/contacts/{contactType}/resend-verification-email",
+    "summary": "Resend verification email",
+    "tags": [
+      "Contacts"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "contactType",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "account",
+            "support",
+            "security"
+          ],
+          "example": "account"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "resendDeviceInvite",
+    "method": "POST",
+    "path": "/device-invites/{deviceInviteId}/resend",
+    "summary": "Resend a device invite",
+    "tags": [
+      "DeviceInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceInviteId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "resendUserInvite",
+    "method": "POST",
+    "path": "/user-invites/{userInviteId}/resend",
+    "summary": "Resend a user invite",
+    "tags": [
+      "UserInvites"
+    ],
+    "pathParams": [
+      {
+        "name": "userInviteId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "restoreUser",
+    "method": "POST",
+    "path": "/users/{userId}/restore",
+    "summary": "Restore a user",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "userId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "rotateWebhookSecret",
+    "method": "POST",
+    "path": "/webhooks/{endpointId}/rotate",
+    "summary": "Rotate webhook secret",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "endpointId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setCustomDevicePostureAttributes",
+    "method": "POST",
+    "path": "/device/{deviceId}/attributes/{attributeKey}",
+    "summary": "Set custom device posture attributes",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "attributeKey",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "maxLength": 128
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": true,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDeviceIp",
+    "method": "POST",
+    "path": "/device/{deviceId}/ip",
+    "summary": "Set device IPv4 address",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDeviceName",
+    "method": "POST",
+    "path": "/device/{deviceId}/name",
+    "summary": "Set device name",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDeviceRoutes",
+    "method": "POST",
+    "path": "/device/{deviceId}/routes",
+    "summary": "Set device routes",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": true,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDeviceTags",
+    "method": "POST",
+    "path": "/device/{deviceId}/tags",
+    "summary": "Set device tags",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDnsConfiguration",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/dns/configuration",
+    "summary": "Set DNS configuration",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDnsNameservers",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/dns/nameservers",
+    "summary": "Set DNS nameservers",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDnsPreferences",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/dns/preferences",
+    "summary": "Set DNS preferences",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setDnsSearchPaths",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/dns/searchpaths",
+    "summary": "Set DNS search paths",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setKey",
+    "method": "PUT",
+    "path": "/tailnet/{tailnet}/keys/{keyId}",
+    "summary": "Set key",
+    "tags": [
+      "Keys"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "keyId",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "k123456CNTRL"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setLogStreamingConfiguration",
+    "method": "PUT",
+    "path": "/tailnet/{tailnet}/logging/{logType}/stream",
+    "summary": "Set log streaming configuration",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "logType",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/LogType"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setPolicyFile",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/acl",
+    "summary": "Set policy file",
+    "tags": [
+      "PolicyFile"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/hujson",
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "setSplitDns",
+    "method": "PUT",
+    "path": "/tailnet/{tailnet}/dns/split-dns",
+    "summary": "Set split DNS",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "suspendUser",
+    "method": "POST",
+    "path": "/users/{userId}/suspend",
+    "summary": "Suspend a user",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "userId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "testWebhook",
+    "method": "POST",
+    "path": "/webhooks/{endpointId}/test",
+    "summary": "Test a webhook",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "endpointId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [],
+    "successCodes": [
+      "202"
+    ]
+  },
+  {
+    "operationId": "updateContact",
+    "method": "PATCH",
+    "path": "/tailnet/{tailnet}/contacts/{contactType}",
+    "summary": "Update contact",
+    "tags": [
+      "Contacts"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "contactType",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "account",
+            "support",
+            "security"
+          ],
+          "example": "account"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateDeviceKey",
+    "method": "POST",
+    "path": "/device/{deviceId}/key",
+    "summary": "Update device key",
+    "tags": [
+      "Devices"
+    ],
+    "pathParams": [
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updatePostureIntegration",
+    "method": "PATCH",
+    "path": "/posture/integrations/{id}",
+    "summary": "Update a posture integration",
+    "tags": [
+      "DevicePosture"
+    ],
+    "pathParams": [
+      {
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "p56wQiqrn7mfDEVEL"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateService",
+    "method": "PUT",
+    "path": "/tailnet/{tailnet}/services/{serviceName}",
+    "summary": "Update a Service",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "serviceName",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": true,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateServiceDeviceApproval",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/services/{serviceName}/device/{deviceId}/approved",
+    "summary": "Update approval status of Service on a device",
+    "tags": [
+      "Services"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "serviceName",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "deviceId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": true,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateSplitDns",
+    "method": "PATCH",
+    "path": "/tailnet/{tailnet}/dns/split-dns",
+    "summary": "Update split DNS",
+    "tags": [
+      "DNS"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateTailnetSettings",
+    "method": "PATCH",
+    "path": "/tailnet/{tailnet}/settings",
+    "summary": "Update tailnet settings",
+    "tags": [
+      "TailnetSettings"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateUserRole",
+    "method": "POST",
+    "path": "/users/{userId}/role",
+    "summary": "Update user role",
+    "tags": [
+      "Users"
+    ],
+    "pathParams": [
+      {
+        "name": "userId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "updateWebhook",
+    "method": "PATCH",
+    "path": "/webhooks/{endpointId}",
+    "summary": "Update webhook",
+    "tags": [
+      "Webhooks"
+    ],
+    "pathParams": [
+      {
+        "name": "endpointId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "validateAndTestPolicyFile",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/acl/validate",
+    "summary": "Validate and test policy file",
+    "tags": [
+      "PolicyFile"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/hujson",
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  },
+  {
+    "operationId": "validateAwsExternalId",
+    "method": "POST",
+    "path": "/tailnet/{tailnet}/aws-external-id/{id}/validate-aws-trust-policy",
+    "summary": "Validate external ID integration with IAM role trust policy",
+    "tags": [
+      "Logging"
+    ],
+    "pathParams": [
+      {
+        "name": "tailnet",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "example.com"
+        }
+      },
+      {
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "queryParams": [],
+    "requestBodyRequired": false,
+    "requestBodyContentTypes": [
+      "application/json"
+    ],
+    "successCodes": [
+      "200"
+    ]
+  }
+]
