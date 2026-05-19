@@ -1,54 +1,52 @@
 # tailscale-skill
 
-A Claude Code / Codex skill for managing Tailscale tailnets through the v2 REST API.
+AI agent skill for managing a Tailscale tailnet through the v2 REST API. No SDKs, no libraries — just `curl` and `jq` scripts that your agent can call by name.
 
-Provides deterministic `curl`+`jq` scripts with operationId-based invocation, dry-run previews, and explicit write confirmation — so AI agents make safe, auditable Tailscale API calls.
+Every operation has a dry-run mode. Mutations require explicit confirmation. You see exactly what `curl` command would run before it runs.
 
-## Features
+## What you get
 
-- **85 operations** from the Tailscale v2 API: devices, users, keys, DNS, ACL policy, webhooks, invites, contacts, logging
-- **`ts_catalog.sh`** — search/filter operations by tag, method, or keyword
-- **`ts_call.sh`** — invoke any operation by `operationId` with path/query/body params
-- **Dry-run by default** for mutations — always preview before `--yes`
-- **Bundled OpenAPI spec** + regenerable catalog via `ts_build_catalog.sh`
+- **85 API operations** — devices, users, keys, DNS, ACL policy, webhooks, invites, contacts, logging
+- **`ts_catalog.sh`** — list and filter operations by tag, method, or text search
+- **`ts_call.sh`** — call any operation by its `operationId`, pass path/query/body params, pipe through `jq`
+- **Dry-run by default** for any POST/PUT/PATCH/DELETE. You preview the curl command, verify it, then pass `--yes` to execute.
+- **Full OpenAPI spec bundled** — regenerate the catalog when Tailscale adds endpoints
 
-## Prerequisites
+You need `curl` and `jq`. That's it.
 
-- `curl`
-- `jq`
-- A Tailscale API key: [admin console → Settings → Keys](https://login.tailscale.com/admin/settings/keys)
-
-## Installation
+## Setup
 
 ```bash
-# Install via Claude Code marketplace
+# Grab an API key from your Tailscale admin console
+# https://login.tailscale.com/admin/settings/keys
+export TS_API_KEY='tskey-api-...'
+
+# If you use Claude Code:
 /plugin marketplace add 0oAstro/tailscale-skill
 /plugin install tailscale
 
-# Or clone directly
+# Or just clone it
 git clone https://github.com/0oAstro/tailscale-skill
 ```
 
 ## Usage
 
 ```bash
-export TS_API_KEY='tskey-api-...'
-
-# Discover available operations
+# Find the operation you need
 ./skills/tailscale/scripts/ts_catalog.sh --search device
 ./skills/tailscale/scripts/ts_catalog.sh --tag DNS --method GET
 
-# Preview a request (no API call made)
+# Preview before touching anything
 ./skills/tailscale/scripts/ts_call.sh listTailnetDevices \
   --params-json '{"tailnet":"acme.ts.net"}' \
   --dry-run
 
-# Execute and filter output with jq
+# Execute and filter with jq
 ./skills/tailscale/scripts/ts_call.sh listTailnetDevices \
   --params-json '{"tailnet":"acme.ts.net"}' \
   --jq '.devices[] | {id,name,hostname,authorized}'
 
-# Mutate with explicit confirmation (always dry-run first)
+# Mutations require --yes. Always dry-run first.
 ./skills/tailscale/scripts/ts_call.sh deleteDevice \
   --params-json '{"deviceId":"device-id"}' \
   --dry-run
@@ -60,13 +58,13 @@ export TS_API_KEY='tskey-api-...'
 
 ## Regenerating the catalog
 
-The bundled spec lives at `skills/tailscale/references/tailscale-api.json`. To regenerate after a Tailscale API update:
+The bundled OpenAPI spec is at `skills/tailscale/references/tailscale-api.json`. When Tailscale adds new endpoints:
 
 ```bash
-# Uses bundled spec by default
+# Uses the bundled spec
 ./skills/tailscale/scripts/ts_build_catalog.sh
 
-# Or point at a new spec
+# Or point at an updated spec
 ./skills/tailscale/scripts/ts_build_catalog.sh /path/to/tailscale-api.json
 ```
 
@@ -79,27 +77,27 @@ This rewrites `references/operation_catalog.json` and `references/operations.tsv
 # OK: tailscale scripts smoke checks passed
 ```
 
-## Structure
+## Project structure
 
 ```
 .claude-plugin/
-  plugin.json          # Machine metadata for skill runtime
-  marketplace.json     # Registry manifest
+  plugin.json          # Plugin manifest
+  marketplace.json     # Marketplace metadata
 skills/
   tailscale/
-    SKILL.md           # Skill instructions (loaded by Claude Code / Codex)
+    SKILL.md           # Loaded by Claude Code / Codex
     agents/
       openai.yaml      # Agent interface definition
     scripts/
       ts_common.sh     # Shared helpers (auth, http_call, urlencode)
       ts_call.sh       # Invoke any operationId
       ts_catalog.sh    # Search/filter operations
-      ts_build_catalog.sh  # Regenerate catalog from OpenAPI spec
-      ts_smoke.sh      # Offline smoke checks
+      ts_build_catalog.sh  # Regenerate from OpenAPI spec
+      ts_smoke.sh      # Offline smoke check
     references/
-      tailscale-api.json      # Bundled OpenAPI spec
-      operation_catalog.json  # 85 operations extracted from OpenAPI
-      operations.tsv          # Human-readable index
+      tailscale-api.json          # Full OpenAPI spec
+      operation_catalog.json      # 85 extracted operations
+      operations.tsv              # Human-readable index
 ```
 
 ## License
