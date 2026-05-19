@@ -1,103 +1,135 @@
 # tailscale-skill
 
-AI agent skill for managing a Tailscale tailnet through the v2 REST API. No SDKs, no libraries - just `curl` and `jq` scripts that your agent can call by name.
+Manage a Tailscale tailnet from your AI coding agent. 85 API operations, deterministic bash scripts, no server to run.
 
-Every operation has a dry-run mode. Mutations require explicit confirmation. You see exactly what `curl` command would run before it runs.
+Works with Claude Code, Codex, Gemini CLI, Cursor, OpenCode — anything that can run a bash script and read a markdown file.
 
-## What you get
-
-- **85 API operations** - devices, users, keys, DNS, ACL policy, webhooks, invites, contacts, logging
-- **`ts_catalog.sh`** - list and filter operations by tag, method, or text search
-- **`ts_call.sh`** - call any operation by its `operationId`, pass path/query/body params, pipe through `jq`
-- **Dry-run by default** for any POST/PUT/PATCH/DELETE. You preview the curl command, verify it, then pass `--yes` to execute.
-- **Full OpenAPI spec bundled** - regenerate the catalog when Tailscale adds endpoints
-
-You need `curl` and `jq`. That's it.
-
-## Setup
+## Install
 
 ```bash
-# Grab an API key from your Tailscale admin console
-# https://login.tailscale.com/admin/settings/keys
-export TS_API_KEY='tskey-api-...'
-
-# If you use Claude Code:
+# Claude Code
 /plugin marketplace add 0oAstro/tailscale-skill
 /plugin install tailscale
 
-# Or just clone it
+# Everyone else
 git clone https://github.com/0oAstro/tailscale-skill
+cd tailscale-skill
+export TS_API_KEY='tskey-api-...'
 ```
+
+You need `curl` and `jq`. That's it.
 
 ## Usage
 
+**Find what you need:**
 ```bash
-# Find the operation you need
 ./skills/tailscale/scripts/ts_catalog.sh --search device
 ./skills/tailscale/scripts/ts_catalog.sh --tag DNS --method GET
+```
 
-# Preview before touching anything
+**Preview before touching anything:**
+```bash
 ./skills/tailscale/scripts/ts_call.sh listTailnetDevices \
   --params-json '{"tailnet":"acme.ts.net"}' \
   --dry-run
+```
 
-# Execute and filter with jq
+**Execute and pipe through jq:**
+```bash
 ./skills/tailscale/scripts/ts_call.sh listTailnetDevices \
   --params-json '{"tailnet":"acme.ts.net"}' \
   --jq '.devices[] | {id,name,hostname,authorized}'
+```
 
-# Mutations require --yes. Always dry-run first.
+**Mutations require --yes. Always dry-run first.**
+```bash
 ./skills/tailscale/scripts/ts_call.sh deleteDevice \
   --params-json '{"deviceId":"device-id"}' \
   --dry-run
 
+# Looks right? Then:
 ./skills/tailscale/scripts/ts_call.sh deleteDevice \
   --params-json '{"deviceId":"device-id"}' \
   --yes
 ```
 
-## Regenerating the catalog
+## What you get
 
-The bundled OpenAPI spec is at `skills/tailscale/references/tailscale-api.json`. When Tailscale adds new endpoints:
+| Script | Purpose |
+|--------|---------|
+| `ts_catalog.sh` | List and filter operations by tag, method, or text |
+| `ts_call.sh` | Call any operation by operationId with path/query/body params |
+| `ts_build_catalog.sh` | Regenerate the catalog from an updated OpenAPI spec |
+| `ts_smoke.sh` | Offline smoke test |
+
+Covers: **devices, users, keys, DNS, ACL policy, webhooks, invites, contacts, logging** — 85 endpoints total.
+
+Each call returns raw JSON. Pipe through `--jq` to shape the output.
+
+## Common commands
 
 ```bash
-# Uses the bundled spec
-./skills/tailscale/scripts/ts_build_catalog.sh
+# List devices
+ts_call.sh listTailnetDevices --params-json '{"tailnet":"acme.ts.net"}' --jq '.devices[]'
 
-# Or point at an updated spec
+# Get one device
+ts_call.sh getDevice --params-json '{"deviceId":"device-id"}'
+
+# List keys
+ts_call.sh listTailnetKeys --params-json '{"tailnet":"acme.ts.net"}'
+
+# Create a key (dry-run first)
+ts_call.sh createKey --params-json '{"tailnet":"acme.ts.net"}' \
+  --body-json '{"capabilities":{"devices":{"create":{"reusable":false,"ephemeral":false,"preauthorized":true,"tags":["tag:ci"]}}},"expirySeconds":3600}' \
+  --dry-run
+
+# Update ACL
+ts_call.sh setPolicyFile --params-json '{"tailnet":"acme.ts.net"}' --body-file ./acl.hujson --dry-run
+
+# Validate ACL before applying
+ts_call.sh validateAndTestPolicyFile --params-json '{"tailnet":"acme.ts.net"}' --body-file ./acl.hujson --dry-run
+```
+
+## Regenerating the catalog
+
+The bundled OpenAPI spec lives at `skills/tailscale/references/tailscale-api.json`. When Tailscale adds endpoints:
+
+```bash
+./skills/tailscale/scripts/ts_build_catalog.sh
+# or point at a new spec:
 ./skills/tailscale/scripts/ts_build_catalog.sh /path/to/tailscale-api.json
 ```
 
-This rewrites `references/operation_catalog.json` and `references/operations.tsv`.
+## Stuff to watch out for
 
-## Smoke test
+**Tag rollouts need a bootstrap step.** You can't assign tags unless they already exist in the live policy's `tagOwners`. Apply a bootstrap policy first, retag, then apply the final restrictive policy.
 
-```bash
-./skills/tailscale/scripts/ts_smoke.sh
-# OK: tailscale scripts smoke checks passed
+**validateAndTestPolicyFile counts as a mutation.** It's a POST, so it needs --yes. Use --dry-run first.
+
+**Policy tests evaluate against live device state.** If you changed device tags since the last policy apply, validate after the tag change, not before.
+
+**sshTests[].dst is picky.** These must be arrays, not strings. They're stricter than ssh[].dst. Things like `"asuna"` or `"autogroup:self"` can fail in sshTests even if they work in ssh rules. Use tag-based destinations here.
+
+**grants + host aliases = footgun.** For tests use explicit hosts aliases. For grants and ssh rules, stick to tags. If a validator says `invalid dst ...`, strip down to tag selectors first, then reintroduce host aliases one at a time.
+
+**SSH relay works differently than you expect.** Tailscale SSH authorizes the immediate source node, not the human who logged into it. If Rahul can SSH to debian, and debian can SSH to asuna, then Rahul can reach asuna through debian. Changing the username doesn't block this. Remove the relay permission or lock down the intermediate host.
+
+## Structure
+
 ```
-
-## Project structure
-
-```
-.claude-plugin/
-  plugin.json          # Plugin manifest
-  marketplace.json     # Marketplace metadata
-skills/
-  tailscale/
-    SKILL.md           # Loaded by Claude Code / Codex
-    agents/
-      openai.yaml      # Agent interface definition
-    scripts/
-      ts_common.sh     # Shared helpers (auth, http_call, urlencode)
-      ts_call.sh       # Invoke any operationId
-      ts_catalog.sh    # Search/filter operations
-      ts_build_catalog.sh  # Regenerate from OpenAPI spec
-      ts_smoke.sh      # Offline smoke check
-    references/
-      tailscale-api.json          # Full OpenAPI spec
-      operation_catalog.json      # 85 extracted operations
-      operations.tsv              # Human-readable index
+skills/tailscale/
+  SKILL.md                      # Instructions loaded by the agent
+  agents/openai.yaml            # Agent interface definition
+  scripts/
+    ts_common.sh                # Shared helpers
+    ts_call.sh                  # Invoke any operationId
+    ts_catalog.sh               # Search and filter operations
+    ts_build_catalog.sh         # Regenerate from OpenAPI spec
+    ts_smoke.sh                 # Offline smoke check
+  references/
+    tailscale-api.json           # Full OpenAPI spec
+    operation_catalog.json       # 85 extracted operations
+    operations.tsv               # Human-readable index
 ```
 
 ## License
