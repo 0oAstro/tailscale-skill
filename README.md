@@ -1,16 +1,16 @@
 # tailscale-skill
 
-AI agent skill for managing a Tailscale tailnet through the v2 REST API. No SDKs, no libraries — just `curl` and `jq` scripts that your agent can call by name.
+AI agent skill for managing a Tailscale tailnet through the v2 REST API. No SDKs, no libraries - just `curl` and `jq` scripts that your agent can call by name.
 
 Every operation has a dry-run mode. Mutations require explicit confirmation. You see exactly what `curl` command would run before it runs.
 
 ## What you get
 
-- **85 API operations** — devices, users, keys, DNS, ACL policy, webhooks, invites, contacts, logging
-- **`ts_catalog.sh`** — list and filter operations by tag, method, or text search
-- **`ts_call.sh`** — call any operation by its `operationId`, pass path/query/body params, pipe through `jq`
+- **85 API operations** - devices, users, keys, DNS, ACL policy, webhooks, invites, contacts, logging
+- **`ts_catalog.sh`** - list and filter operations by tag, method, or text search
+- **`ts_call.sh`** - call any operation by its `operationId`, pass path/query/body params, pipe through `jq`
 - **Dry-run by default** for any POST/PUT/PATCH/DELETE. You preview the curl command, verify it, then pass `--yes` to execute.
-- **Full OpenAPI spec bundled** — regenerate the catalog when Tailscale adds endpoints
+- **Full OpenAPI spec bundled** - regenerate the catalog when Tailscale adds endpoints
 
 You need `curl` and `jq`. That's it.
 
